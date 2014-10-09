@@ -159,14 +159,14 @@ def main():
     # raise SystemExit
     # if results.txt present delete it !
     try:
-        os.remove('results.txt')
+        os.remove('results.csv')
     except OSError:
         pass
     # commonize_filepath('\Data%20Files\Plant%201%20Files\ODS\10640.xls')
     # commonize_filepath('/Data%20Files/Plant%201%20Files/ODS/10591.xls')
     # raise SystemExit
     rootdir = os.path.normpath("P:/ShopFloor/")
-    list_tables=['ODS info.txt','index.txt','PART TABLE.txt','setup.txt']
+    list_tables=['ODS info.txt']
     table_summary = []
     goodcount=0.0
     badcount=0.0
@@ -180,10 +180,11 @@ def main():
         accuracy = 0    
         table_summary = print_header(accuracy,table_filename,good,bad,bad_links)
 
-        with open('results.txt', 'a') as thefile:
+        with open('results.csv', 'a') as thefile:
             for item in table_summary:
-                thefile.write("%s\n" % item)
-            thefile.write(2500*'@')
+                thefile.write("%s\n," % item)
+                # thefile.write("%s\n" % bad_links)
+            # thefile.write(2500*'@')
         goodcount+=good
         badcount+=bad
         notlinkcount+=not_link
