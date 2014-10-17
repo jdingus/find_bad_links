@@ -4,6 +4,8 @@ import re
 def scanforlinks(table_filename,rootdir):
     """ Pass in filename.txt and will parse out hyperlink #..\Data Files\Plant 1 Files\ODS\226-in.xls#
                                             or            #..\Data%20Files\Plant%201%20Files\ODS\10580.xls#
+                                                          #..\..\Data Files\Plant 1 Files\ODS\226-in.xls#
+                                                          #P:\Data Files\Plant 1 Files\ODS\226-in.xls#
         If length of file is = 0 , ie. bad link it will return a list of bad ODS links
     """
     tot_good=0
